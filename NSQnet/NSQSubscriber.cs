@@ -118,7 +118,15 @@ namespace NSQnet
         /// </summary>
         public void UpdateReadyCount()
         {
-            _protocol.Ready(_readyCount);
+            try
+            {
+                _protocol.Ready(_readyCount);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
         }
 
         /// <summary>
