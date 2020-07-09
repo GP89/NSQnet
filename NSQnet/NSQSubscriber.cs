@@ -182,7 +182,14 @@ namespace NSQnet
             System.Threading.Interlocked.Decrement(ref _processingCount);
             System.Threading.Interlocked.Increment(ref _readyCount);
 
-            UpdateReadyCount();
+            try
+            {
+                UpdateReadyCount();
+            }
+            catch (ArgumentException)
+            {
+                this.Stop();
+            }
         }
         #endregion
     }
