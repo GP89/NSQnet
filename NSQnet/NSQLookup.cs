@@ -224,8 +224,7 @@ namespace NSQnet
 
         protected static dynamic _getDataFromResponse(String responseBody)
         {
-            dynamic resp = JsonSerializer.Current.DeserializeObject(responseBody);
-            return resp.data;
+            return JsonSerializer.Current.DeserializeObject(responseBody);
         }
     }
 
