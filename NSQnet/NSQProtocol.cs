@@ -122,7 +122,7 @@ namespace NSQnet
 
         private Task<NSQMessage> ReceiveMessageAsync()
         {
-            return Task.Run<NSQMessage>(() => ReceiveMessage());
+            return TaskEx.Run<NSQMessage>(() => ReceiveMessage());
         }
 
         private NSQMessage ReceiveMessage()
@@ -191,7 +191,7 @@ namespace NSQnet
         private Task SignalMessageRecievedEventAsync(NSQMessageEventArgs e)
         {
             NSQProtocol _protocol = this;
-            return Task.Run(() =>
+            return TaskEx.Run(() =>
             {
                 var handler = this.NSQMessageReceived;
                 if (handler != null)
